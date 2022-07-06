@@ -3,15 +3,38 @@
   margin: auto;
   align-items: center;
   padding: 20px;
-  background-color: #0a0d25eb;
+  border: none;
   background-color: #4e7d96;
   color: #fff;
+  transition: 0.4s all;
+}
+.card:hover {
+  background-color: #0a0d25;
+  box-shadow: #9fc9dd 0px 0px 0px 2px inset,
+    rgb(255, 255, 255) 10px -10px 0px -3px, rgb(78, 125, 150) 10px -10px,
+    rgb(255, 255, 255) 20px -20px 0px -3px, rgb(159, 201, 221) 20px -20px,
+    rgb(255, 255, 255) 30px -30px 0px -3px, rgb(10, 13, 37) 30px -30px,
+    rgb(255, 255, 255) 40px -40px 0px -3px, rgb(255, 132, 75) 40px -40px;
+  cursor: pointer;
 }
 .card-body {
   text-align: center;
+  background-color: #0a0d25eb;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
 }
 .card-body p {
   padding: 10px 0;
+  color: #11d811;
+}
+.red {
+  color: #f00606 !important;
+}
+.card-body span {
+  font-size: 1.1rem;
+  color: #fff;
 }
 .card img {
   height: 200px;

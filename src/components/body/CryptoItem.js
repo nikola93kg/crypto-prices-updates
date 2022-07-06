@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import './CryptoItem.css';
 
-function CryptoItem({ id, image, name, symbol, current_price, total_volume, price_change_percentage_24h, market_cap }) {
+function CryptoItem(props) {
+
+    const { id, image, name, symbol, current_price, high_24h, low_24h, price_change_percentage_24h, price_change_24h } = props;
+
     return (
         <div className='crypto-item-container'>
             <div className="crypto-item-row">
@@ -15,13 +18,13 @@ function CryptoItem({ id, image, name, symbol, current_price, total_volume, pric
                 <div className='coin-data'>
                     <p className='coin-price'>
                         <span>Current price:</span> <br />
-                        ${current_price}
-                    </p>
-                    <p className='coin-volume'>
-                        <span>Total volume:</span> <br />
-                        ${total_volume.toLocaleString()}
+                        ${current_price.toLocaleString()}
                     </p>
 
+                    <p className='coin-price'>
+                        <span>Change:</span> <br />
+                        ${price_change_24h}
+                    </p>
                     {price_change_percentage_24h < 0 ? (
                         <p className='coin-percent red'>
                             {price_change_percentage_24h.toFixed(2)}%
@@ -33,7 +36,10 @@ function CryptoItem({ id, image, name, symbol, current_price, total_volume, pric
                     )}
 
                     <p className='coin-marketcap'>
-                        <span>Market Cap:</span> <br />  ${market_cap.toLocaleString()}
+                        <span>Daily high:</span> <br />  ${high_24h.toLocaleString()}
+                    </p>
+                    <p className='coin-marketcap'>
+                        <span>Daily low:</span> <br />  ${low_24h.toLocaleString()}
                     </p>
                 </div>
             </div>

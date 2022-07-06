@@ -21,6 +21,7 @@ function FavoritesPage() {
     return (
         <section>
             {favorites.map(data => {
+                console.log(data)
                 return (
                     <div className='crypto-item-container' key={data.id}>
                         <div className="crypto-item-row">
@@ -33,7 +34,8 @@ function FavoritesPage() {
                             <div className='coin-data'>
                                 <p className='coin-price'>
                                     <span>Current price:</span> <br />
-                                    ${data.price}</p>
+                                    ${data.price}
+                                </p>
                                 <p className='coin-marketcap'>
                                     <span>Lowest price:</span> <br /> ${data.lowest_price}
                                 </p>

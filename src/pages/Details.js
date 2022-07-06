@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom';
+import { useGlobalContext } from "../store/context";
 import FavoritesContext from '../store/favorites-context';
 import Loading from "../components/Loading";
 import './Details.css';
@@ -10,6 +11,7 @@ function DetailsPage() {
 
     const { id } = useParams();
     const favoritesContext = useContext(FavoritesContext);
+    const { login } = useGlobalContext();
 
     const [loading, setLoading] = useState(false);
     const [crypto, setCrypto] = useState(null);
@@ -57,23 +59,28 @@ function DetailsPage() {
     const { name, image, market_data } = crypto;
 
     return (
-        <div className="card">
-            <img className="card-img-top" src={image.large} alt={name} />
-            <div className="card-body">
-                <h2 className="card-title mb-5">{name}</h2>
-                <p className="card-text"> <span>Current price:</span> ${market_data.current_price.usd.toLocaleString()}</p>
-                <p> <span>Highest price:</span> ${market_data.market_cap.usd.toLocaleString()}</p>
-                <p> <span>Lowest price in 24h: ${market_data.low_24h.usd.toLocaleString()} </span> </p>
+        <>
+            <h2>Details</h2>
+            <div className="card">
+                <img className="card-img-top" src={image.large} alt={name} />
+                <div className="card-body">
+                    <h2 className="card-title mb-5">{name}</h2>
+                    <p className="card-text"> <span>Current price:</span> ${market_data.current_price.usd.toLocaleString()}</p>
+                    <p> <span>Highest price in 24h:</span> ${market_data.high_24h.usd.toLocaleString()}</p>
+                    <p className="red"> <span>Lowest price in 24h: </span> ${market_data.low_24h.usd.toLocaleString()}  </p>
+                </div>
+                <div className="footer">
+                    {login && <button
+                        onClick={toggleFavoriteStatusHandler}
+                        btn btn-light
+                        className={`${itemIsFavorite ? 'btn btn-danger' : 'btn btn-light'}`}>
+                        {itemIsFavorite ? 'Remove from favorites' : 'To Favorites'}
+                    </button>}
+
+                </div>
             </div>
-            <div className="footer">
-                <button
-                    onClick={toggleFavoriteStatusHandler}
-                    btn btn-light
-                    className={`${itemIsFavorite ? 'btn btn-danger' : 'btn btn-light'}`}>
-                    {itemIsFavorite ? 'Remove from favorites' : 'To Favorites'}
-                </button>
-            </div>
-        </div>
+        </>
+
     )
 }
 

@@ -8,6 +8,7 @@ const AppProvider = ({ children }) => {
 
     const [loading, setLoading] = useState(true);
     const [cryptoData, setCryptoData] = useState([]);
+    const [login, setLogin] = useState(false);
 
     const fetchCrypto = async () => {
         try {
@@ -27,7 +28,7 @@ const AppProvider = ({ children }) => {
     }, [])
 
     return (
-        <AppContext.Provider value={{ loading, cryptoData }}>
+        <AppContext.Provider value={{ loading, cryptoData, login, setLogin }}>
             {children}
         </AppContext.Provider>
     )

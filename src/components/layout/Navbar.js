@@ -1,11 +1,12 @@
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useGlobalContext } from '../../store/context';
 import FavoritesContext from '../../store/favorites-context';
 import './Navbar.css';
 
 function Navbar() {
 
-    const [login, setLogin] = useState(false);
+    const { login, setLogin } = useGlobalContext();
     const favoritesContext = useContext(FavoritesContext);
 
     return (
