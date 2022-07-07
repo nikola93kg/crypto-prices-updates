@@ -4,8 +4,11 @@ header {
   align-items: center;
   flex-direction: row-reverse;
   background: #4e7d96;
+  background: #0a0d25;
   color: #fff;
   height: 60px;
+  position: sticky;
+  top: 0;
 }
 nav {
   display: flex;
@@ -43,6 +46,9 @@ li a:hover {
 .logo button:hover {
   background-color: #fb7a3e;
 }
+li {
+  display: flex;
+}
 .notification {
   background-color: #ea2027;
   border-radius: 50%;
@@ -53,9 +59,8 @@ li a:hover {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  position: absolute;
-  top: 10px;
-  left: 602px;
+  position: relative;
+  bottom: 5px;
 }
 .notification-none {
   display: none;

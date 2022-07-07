@@ -14,8 +14,7 @@ const AppProvider = ({ children }) => {
         try {
             const response = await fetch(url);
             const result = await response.json();
-            const limitedResult = result.slice(0, 5);
-            setCryptoData(limitedResult);
+            setCryptoData(result);
             setLoading(false);
         } catch (error) {
             console.log(error);
