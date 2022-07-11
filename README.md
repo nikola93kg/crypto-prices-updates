@@ -1,3 +1,9 @@
+<img src="https://i.ibb.co/y4vTSHX/Screenshot-1.png">
+
+<a href="https://nikola93kg.github.io/crypto-prices-updates/" target="_blank">
+Live preview
+                    </a>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
